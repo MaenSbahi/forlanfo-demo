@@ -1,0 +1,31 @@
+@import "layout.scss";
+.topics {
+    border-bottom: 1px solid #ccc;
+
+    .inner-row {
+        @extend %inner-row;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 6px;
+    }
+    .list {
+        display: flex;
+        justify-content: space-between;
+        list-style: none;
+        width: 100%;
+        padding: 0 2rem;
+        min-height: 40px;
+        li {
+            display: flex;
+            a {
+                display: flex;
+                align-items: center;
+                padding: 6px 0;
+                @include underline;
+            }
+        }
+    }
+    @media (max-width: 992px) {
+        display: none;
+    }
+}

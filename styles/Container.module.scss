@@ -1,0 +1,434 @@
+@import "layout.scss";
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    @extend %inner-row;
+    padding: 36px 42px;
+    .card {
+        flex: 0 0 25%;
+        min-width: 300px;
+        padding: 12px;
+        @extend %box;
+        .card-header {
+            text-align: center;
+            .img {
+                width: 100%;
+                height: 200px;
+                max-height: 200px;
+                overflow: hidden;
+                border-radius: 6px;
+                margin-bottom: 14px;
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+            .label {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                .rate {
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    color: gold;
+                    font-size: 18px;
+                    display: flex;
+                    align-items: center;
+                    svg {
+                        margin: 0 3px;
+                        path {
+                            fill: gold;
+                        }
+                    }
+                }
+                + p {
+                    margin: 10px 0;
+                }
+            }
+            .location {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: #8c8c8c;
+                svg {
+                    margin: 0 4px;
+                    path {
+                        fill: #8c8c8c;
+                    }
+                }
+            }
+        }
+        .action {
+            margin: 18px 0;
+
+            .btn {
+                @include btn;
+                width: 100%;
+            }
+        }
+        .card-footer {
+            .data {
+                display: flex;
+                line-height: 1;
+                margin: 14px 0;
+                .title {
+                    margin: 0 12px;
+                }
+                p {
+                    line-height: 1.2;
+                    color: #8c8c8c;
+                }
+            }
+        }
+    }
+    .info {
+        flex: 0 0 calc(75% - 70px);
+        .tool-bar {
+            @extend %box;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-wrap: wrap;
+            min-height: 60px;
+            margin-bottom: 25px;
+            .data {
+                display: flex;
+                margin: 3px 0;
+                .title {
+                    margin: 0 10px;
+                }
+            }
+            @media (max-width: 520px) {
+                justify-content: center;
+
+                .data {
+                    justify-content: center;
+                    flex: 0 0 50%;
+                }
+            }
+            @media (max-width: 420px) {
+                justify-content: center;
+
+                .data {
+                    justify-content: center;
+                    flex: 0 0 100%;
+                }
+            }
+        }
+        .about {
+            @extend %box;
+            padding: 16px;
+            .active {
+                @include underline;
+                font-size: 20px;
+                min-height: 30px;
+                display: inline-block;
+            }
+            p {
+                margin: 14px 0;
+            }
+            label {
+                font-weight: bold;
+                display: block;
+                margin-bottom: 12px;
+            }
+            .skillsWrapper {
+                display: flex;
+                flex-wrap: wrap;
+                .skillTag {
+                    @extend %box;
+                    background: skyblue;
+                    color: #222;
+                    font-weight: 500;
+                    padding: 5px 16px;
+                    border-radius: 2.5rem;
+                    margin: 6px;
+                    display: inline-block;
+                }
+            }
+        }
+        .portfolio {
+            @extend %box;
+            padding: 16px;
+            .active {
+                @include underline;
+                font-size: 20px;
+                min-height: 30px;
+                display: inline-block;
+                margin-bottom: 14px;
+            }
+            .gallery {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 25px;
+                .work {
+                    flex: 0 0 calc(33.3333% - 25px);
+                    @extend %box;
+                    overflow: hidden;
+                    position: relative;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: transparentize(
+                            $color: #000000,
+                            $amount: 0.6
+                        );
+                    }
+                    .title {
+                        position: absolute;
+                        bottom: 4px;
+                        left: 8px;
+                        z-index: 2;
+                        color: #fff;
+                        font-weight: 500;
+                        max-width: 100%;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 1;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                    }
+                    @media (max-width: 768px) {
+                        flex: 0 0 calc(50% - 25px);
+                    }
+                }
+            }
+            .see-all {
+                color: dodgerblue;
+                text-transform: capitalize;
+                display: block;
+                margin: 20px auto;
+                text-align: center;
+                font-weight: bold;
+            }
+        }
+        .services {
+            @extend %box;
+            padding: 16px;
+            .active {
+                @include underline;
+                font-size: 20px;
+                min-height: 30px;
+                display: inline-block;
+                margin-bottom: 14px;
+            }
+            .gallery {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 12px;
+                .service {
+                    flex: 0 0 calc(33.3333% - 12px);
+                    @extend %box;
+                    overflow: hidden;
+                    position: relative;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                    .body {
+                        padding: 12px;
+                        .author {
+                            display: flex;
+                            .label {
+                                margin: 0 10px;
+                                p {
+                                    color: #8c8c8c;
+                                    font-size: 14px;
+                                }
+                            }
+                        }
+                        .desc {
+                            margin: 12px 0;
+                            display: -webkit-box;
+                            -webkit-line-clamp: 2;
+                            -webkit-box-orient: vertical;
+                            overflow: hidden;
+                        }
+
+                        .avatar {
+                            width: 35px;
+                            height: 35px;
+                            border-radius: 50%;
+                            overflow: hidden;
+                            @media (max-width: 500px) {
+                                display: none;
+                            }
+                        }
+                        .details {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            padding-bottom: 6px;
+                            .rate {
+                                color: dodgerblue;
+                                svg {
+                                    margin: 0 4px;
+                                    path {
+                                        fill: dodgerblue;
+                                    }
+                                }
+                            }
+                            .sold {
+                                color: #8c8c8c;
+                                font-weight: 500;
+                                font-size: 14px;
+                            }
+                        }
+                        .service-footer {
+                            padding-top: 6px;
+                            border-top: 1px solid #efefef;
+                            display: flex;
+                            justify-content: space-between;
+                            .view {
+                                @include btn;
+                                flex: 0 0 calc(70% - 6px);
+                            }
+                            .liked {
+                                flex: 0 0 30%;
+                                @include btn(#efefef);
+                                svg {
+                                    path {
+                                        fill: #222;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    @media (max-width: 992px) {
+                        flex: 0 0 calc(50% - 12px);
+                        display: flex;
+                    }
+                    @media (max-width: 768px) {
+                        flex: 0 0 100%;
+                        display: flex;
+                    }
+                }
+            }
+            .see-all {
+                color: dodgerblue;
+                text-transform: capitalize;
+                display: block;
+                margin: 20px auto;
+                text-align: center;
+                font-weight: bold;
+            }
+        }
+        .reviews {
+            @extend %box;
+            padding: 16px;
+            .active {
+                @include underline;
+                font-size: 20px;
+                min-height: 30px;
+                display: inline-block;
+                margin-bottom: 14px;
+            }
+            .author {
+                display: flex;
+                .label {
+                    margin: 0 10px;
+                    p {
+                        color: #8c8c8c;
+                        font-size: 14px;
+                    }
+                }
+            }
+            .avatar {
+                width: 35px;
+                height: 35px;
+                border-radius: 50%;
+                overflow: hidden;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+            .rate {
+                margin: 0 0 0 auto;
+                svg {
+                    path {
+                        fill: gold;
+                    }
+                }
+            }
+            .body {
+                margin: 24px 0;
+            }
+            .see-all {
+                color: dodgerblue;
+                text-transform: capitalize;
+                display: block;
+                margin: 20px auto;
+                text-align: center;
+                font-weight: bold;
+            }
+        }
+    }
+    @media (max-width: 1002px) {
+        padding: 10px;
+        .card {
+            flex: 0 0 100%;
+            margin-bottom: 2.5rem;
+            .card-header {
+                display: flex;
+                justify-content: space-between;
+                .user-info {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                }
+                .img,
+                .user-info {
+                    flex: 0 0 calc(50% - 8px);
+                }
+                .user-info {
+                    .label {
+                        width: 100%;
+                        .rate {
+                            position: relative;
+                            transform: translateY(0);
+                            top: 0;
+                        }
+                    }
+                }
+            }
+            .card-footer {
+                .data {
+                    margin-left: calc(50% - 6rem);
+                }
+            }
+        }
+        .info {
+            flex: 0 0 100%;
+        }
+    }
+    @media (max-width: 500px) {
+        .card {
+            .card-header {
+                .img {
+                    min-height: auto;
+                    height: 100px;
+                }
+            }
+        }
+    }
+}

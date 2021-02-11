@@ -1,0 +1,53 @@
+@import "layout.scss";
+.navbar {
+    background: $gray;
+    border-bottom: 1px solid lighten($color: #ccc, $amount: 10%);
+    .inner-row {
+        display: flex;
+        justify-content: space-between;
+        @extend %inner-row;
+    }
+    .logo {
+        width: 180px;
+        height: 50px;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+    }
+    .links {
+        flex: 0 0 40%;
+        min-width: 555px;
+        display: flex;
+        justify-content: space-between;
+        list-style: none;
+        li {
+            display: flex;
+            flex: 0 0 20%;
+            a {
+                @include underline;
+                align-items: center;
+                justify-content: center;
+                display: flex;
+                width: 100%;
+                font-weight: 500;
+                font-size: 16px;
+            }
+        }
+    }
+    .toggle {
+        font-size: 36px;
+        align-self: center;
+        display: none;
+    }
+    @media (max-width: 992px) {
+        .toggle {
+            display: block;
+        }
+        .links {
+            display: none;
+        }
+    }
+}
